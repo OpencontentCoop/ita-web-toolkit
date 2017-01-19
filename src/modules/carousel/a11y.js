@@ -273,7 +273,9 @@
 
     if (!!stage) {
       var offs = stage.offset()
-      if (!!targ) {
+        // Todo: risovrascrivere modulo
+        /*Evidenti problemi di navigazione*/
+      /*if (!!targ) {
         window.scrollTo(
           offs.left,
           offs.top - parseInt($('body').css('padding-top'), 10)
@@ -306,7 +308,7 @@
           }
           newFocus.focus()
         }, 250)
-      }
+      }*/
     }
   }
 
