@@ -8,14 +8,14 @@
   content: "1 .u-floatLeft.u-sizeFull";
 
   @media (--sm-viewport) {
-    content: "1 .u-floatLeft.u-sizeFull";
-  }
-
-  @media (--md-viewport) {
     content: "2 .u-floatLeft.u-size1of2";
   }
 
-  @media (--lg-viewport) {
+  @media (--md-viewport) {
     content: "3 .u-floatLeft.u-size1of3";
+  }
+
+  @media (--lg-viewport) {
+    content: "4 .u-floatLeft.u-size1of4";
   }
 }
