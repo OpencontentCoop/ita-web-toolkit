@@ -15,6 +15,7 @@ const Frtreeview = function({
   openOnClick: openOnClick = true,
   classFocused: classFocused = 'fr-tree-focus',
   classParent: classParent = 'fr-tree-parent',
+  classMenuHandler: classMenuHandler = 'menu-handler',
   multiselectable: multiselectable = true
     // readyClass: readyClass = 'fr-accordion--is-ready',
 } = {}) {
@@ -279,12 +280,25 @@ const Frtreeview = function({
       return true
     }
 
-    treeview.$activeItem = $item
+    return true
+
+    /*treeview.$activeItem = $item
     _updateStyling(treeview, $item)
     _toggleGroup(treeview, $item)
     e.stopPropagation()
-    return false
+    return false*/
   }
+
+    function _handleClickMenuHandler(treeview, $item, e) {
+      e.stopPropagation()
+      let $parent = $item.parent().parent()
+      console.log($parent)
+      treeview.$activeItem = $parent
+      _updateStyling(treeview, $parent)
+      _toggleGroup(treeview, $parent)
+
+      return false
+    }
 
   function _handleClick(treeview, $item, e) {
     if (e.altKey || e.ctrlKey || e.shiftKey) {
@@ -306,6 +320,9 @@ const Frtreeview = function({
     if (openOnClick) {
       treeview.$parents.click(function(e) {
         return _handleDblClick(treeview, $(this), e)
+      })
+      treeview.$handlers.click(function(e) {
+          return _handleClickMenuHandler(treeview, $(this), e)
       })
     } else {
       treeview.$parents.click(function(e) {
@@ -333,7 +350,7 @@ const Frtreeview = function({
     })
   }
 
-  function destroy() {
+function destroy() {
     /* TODO */
   }
 
@@ -370,9 +387,11 @@ const Frtreeview = function({
         $el: $el,
         $items: $el.find('li'),
         $parents: $el.find('.' + classParent),
+        $handlers: $el.find('.' + classMenuHandler),
         $visibleItems: null,
         $activeItem: null
       }
+      console.log(treeview)
       _collapseAll(treeview)
       _bindEvents(treeview)
     })
