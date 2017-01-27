@@ -1,21 +1,27 @@
 /** @define Treeview; weak; */
 
 :root {
-  --Treeview-link-padding: 0.5em;
+  --Treeview-link-padding: 1em;
   --Treeview-link-arrow-width: 0.8em;
   --Treeview-link-arrow-up: inline("icons/ita/img/SVG/collapse.svg");
   --Treeview-link-arrow-down: inline("icons/ita/img/SVG/expand.svg");
 }
 
+.Treeview [aria-expanded="true"] {
+  @extend .u-background-grey-10;
+}
+
 .Treeview [aria-expanded] > a span.menu-handler {
   background-image: var(--Treeview-link-arrow-down);
-  background-position: right var(--Treeview-link-padding) center;
+  /*background-position: right var(--Treeview-link-padding) center;*/
+  background-position: center;
   background-repeat: no-repeat;
   background-size: var(--Treeview-link-arrow-width);
 }
 
 .Treeview [aria-expanded="true"] > a span.menu-handler {
   background-image: var(--Treeview-link-arrow-up);
+  @extend .u-background-50;
 }
 
 .Treeview [aria-hidden="true"] {
@@ -57,16 +63,16 @@
   @extend .u-background-5;
 }
 
-
 .Treeview li a span.menu-handler {
-  @extend .u-background-50;
+  @extend .u-background-grey-40;
+  @extend .u-zindex-30;
   position: absolute;
   right: 0;
   display: block;
   width: 15%;
   height: 100%;
   top: 0;
-  z-index: 99;
+  border-left: 1px solid color(var(--Color-primary) l(-25%));
   content: " ";
   -khtml-opacity:.60;
   -moz-opacity:.60;
