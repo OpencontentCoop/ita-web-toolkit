@@ -19,3 +19,8 @@
     content: "4 .u-floatLeft.u-size1of4";
   }
 }
+[data-columns="2"],
+[data-columns="3"],
+[data-columns="4"] {
+  float: left;
+}
