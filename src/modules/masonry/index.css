@@ -1,26 +1,21 @@
 .Masonry-item {
-  @extend .u-padding-right-xs;
-  @extend .u-padding-left-xs;
-  @extend .u-padding-bottom-s;
+@extend .u-padding-right-xs;
+@extend .u-padding-left-xs;
+@extend .u-padding-bottom-s;
 }
 
 [data-columns]::before {
   content: "1 .u-floatLeft.u-sizeFull";
 
-  @media (--sm-viewport) {
-    content: "2 .u-floatLeft.u-size1of2";
-  }
-
-  @media (--md-viewport) {
-    content: "3 .u-floatLeft.u-size1of3";
-  }
-
-  @media (--lg-viewport) {
-    content: "4 .u-floatLeft.u-size1of4";
-  }
+@media (--sm-viewport) {
+  content: "1 .u-floatLeft.u-sizeFull";
 }
-[data-columns="2"],
-[data-columns="3"],
-[data-columns="4"] {
-  float: left;
+
+@media (--md-viewport) {
+  content: "2 .u-floatLeft.u-size1of2";
+}
+
+@media (--lg-viewport) {
+  content: "3 .u-floatLeft.u-size1of3";
+}
 }
