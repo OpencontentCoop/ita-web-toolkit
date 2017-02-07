@@ -72,7 +72,6 @@
   width: 15%;
   height: 100%;
   top: 0;
-  border-left: 1px solid color(var(--Color-primary) l(-25%));
   content: " ";
   -khtml-opacity:.60;
   -moz-opacity:.60;
